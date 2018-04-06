@@ -1,13 +1,10 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Author: James Eaton, Scott Kirkpatrick
+ * Date: 4/6/2018
+ * Ovwerview:
  */
 
-/**
- *
- * @author z79x595
- */
+
 public class Graphs {
     
 }
