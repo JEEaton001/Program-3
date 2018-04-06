@@ -23,11 +23,12 @@ public class main {
         try (BufferedReader reader = Files.newBufferedReader(file1)) {
             //string for reading file
             String line = null;
-            //loop to read file.
-            while ((line = reader.readLine()) != null) {
+            // read first line
+            line = reader.readLine();
                 //variables used in reading the file
-                String[] temp = line.split(",");
-            }
+            String[] temp = line.split(",");
+                // pass temp and reader to graph
+            
             
         }   catch (IOException ex) {
             System.err.format("IOException: %s%n", ex);
