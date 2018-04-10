@@ -14,11 +14,8 @@ import java.nio.file.Paths;
 
 public class main {
     
-    
-    
-    
     public static void main(String[] args) {
-        //path for input
+        //input graph
         Path file1 = Paths.get("Input.csv");
         try (BufferedReader reader = Files.newBufferedReader(file1)) {
             //string for reading file
@@ -28,12 +25,17 @@ public class main {
                 //variables used in reading the file
             String[] temp = line.split(",");
                 // pass temp and reader to graph
+            Graph graph = new Graph(temp, reader);
+            graph.PrintGraph();
+                // prims algorithm
+            Algorithms.Prim(graph, graph.labels[0], "");
+            
+            
+            
             
             
         }   catch (IOException ex) {
             System.err.format("IOException: %s%n", ex);
         }
-        
-        
     }
 }

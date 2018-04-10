@@ -1,8 +1,4 @@
 
-import java.io.BufferedReader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /*
  * Author: James Eaton, Scott Kirkpatrick
@@ -13,55 +9,31 @@ import java.util.Map;
 
 public class Algorithms {
     
-    public static Graph MakeGraph(){
+    public static void Prim(Graph graph, String start, String prev){
         
-    }
-    
-    public static void Prim(){
-        
+        for(int i=0; i<graph.labels.length;i++){
+            if(graph.labels[i].equals(start)){
+                int smallest = Integer.MAX_VALUE;
+                for(int j=0; j<graph.labels.length;j++){
+                    if((graph.weight[i][j] < smallest) & !(prev.contains(graph.labels[j]))){
+                        smallest = graph.weight[i][j];
+                        System.out.print(start + graph.labels[j] + " ");
+                        prev = prev.concat(start);
+                        Prim(graph, graph.labels[j],prev);
+                    }
+                }
+            }
+        }
     } 
     
-    public static void Kruskal(){
+    public static Graph Kruskal(Graph graph){
         
+        return null;
     } 
      
-    public static void FloydWarshall(){
+    public static Graph FloydWarshall(Graph graph){
         
+        return null;
     } 
 }
 
-class Graph{
-    String[] labels;
-    int[][] weight;
-    
-    Graph(String[] L, BufferedReader reader){
-        labels = L;
-        weight = new int[labels.length][labels.length];
-        for(int i=0; i<labels.length;i++){
-            String line = reader.readLine();
-            String[] Connections = line.split(",");
-            for(int j = 0; j<labels.length;j++){
-                if(Connections[j].equals("∞")){
-                    weight[i][j] = Integer.MAX_VALUE;
-                }else{
-                    weight[i][j] = Integer.parseInt(Connections[j]);
-                }
-            }   
-        }
-        
-    }
-    
-}
-
-class Node{
-    String Label;
-    Map<Node, Integer> connections = new HashMap<>();
-    
-    Node(String L){
-        Label = L;
-    }
-    
-    public void addConnections(BufferedReader reader){
-        
-    }
-}
