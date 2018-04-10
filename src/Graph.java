@@ -16,6 +16,16 @@ public class Graph{
     public String[] labels;
     public int[][] weight;
     
+    //Constructor for Graph with No edges
+    Graph(String[] L){
+    	for(int i = 0, i < labels.length, i++){
+    		for (int j = 0, j < labels.length, j++){
+    			weight[i][j] = Integer.MAX_VALUE;
+    		}
+    	}
+    }
+    
+    //Constructor for Graph with weights from file
     Graph(String[] L, BufferedReader reader){
         labels = L;
         weight = new int[labels.length][labels.length];

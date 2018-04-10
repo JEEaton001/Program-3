@@ -27,13 +27,15 @@ public class main {
                 // pass temp and reader to graph
             Graph graph = new Graph(temp, reader);
             graph.PrintGraph();
+            Graph MST;
                 // prims algorithm
             System.out.println("Prim's Algorithm");
             Algorithms.Prim(graph, graph.labels[0], "");
             System.out.println();
                 // kruskal algorithm
             System.out.println("Kruskal's Algorithm");
-            Algorithms.Kruskal(graph);
+            MST = Algorithms.Kruskal(graph);
+            MST.PrintGraph();
             System.out.println();
                 // floyed warshall's algorithm
             System.out.println("Floyd Warshall's Algorithm");

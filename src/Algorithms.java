@@ -25,8 +25,18 @@ public class Algorithms {
         }
     } 
     
-    public static void Kruskal(Graph graph){
+    public static Graph Kruskal(Graph graph){
+        int n = 0;
+    	PriorityQueue edges = new PriorityQueue;
+        Graph MST = new Graph(graph.labels){
         
+       	for(int i = 0, i < graph.labels.length, i++){
+       		for (int j = 0, j < graph.labels.length, j++){
+       			if(weight[i][j] != Integer.MAX_VALUE){
+       				edges.add()
+       			}
+       		}
+        }
     } 
      
     public static void FloydWarshall(Graph graph){
