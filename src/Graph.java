@@ -58,16 +58,3 @@ public class Graph{
     }
     
 }
-
-class Node{
-    String Label;
-    Map<Node, Integer> connections = new HashMap<>();
-    
-    Node(String L){
-        Label = L;
-    }
-    
-    public void addConnections(BufferedReader reader){
-        
-    }
-}

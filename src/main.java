@@ -28,10 +28,17 @@ public class main {
             Graph graph = new Graph(temp, reader);
             graph.PrintGraph();
                 // prims algorithm
+            System.out.println("Prim's Algorithm");
             Algorithms.Prim(graph, graph.labels[0], "");
-            
-            
-            
+            System.out.println();
+                // kruskal algorithm
+            System.out.println("Kruskal's Algorithm");
+            Algorithms.Kruskal(graph);
+            System.out.println();
+                // floyed warshall's algorithm
+            System.out.println("Floyd Warshall's Algorithm");
+            Algorithms.FloydWarshall(graph);
+            System.out.println();
             
             
         }   catch (IOException ex) {
