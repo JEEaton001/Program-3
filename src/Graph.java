@@ -18,8 +18,8 @@ public class Graph{
     
     //Constructor for Graph with No edges
     Graph(String[] L){
-    	for(int i = 0, i < labels.length, i++){
-    		for (int j = 0, j < labels.length, j++){
+    	for(int i = 0; i < labels.length; i++){
+    		for (int j = 0; j < labels.length; j++){
     			weight[i][j] = Integer.MAX_VALUE;
     		}
     	}

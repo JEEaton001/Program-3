@@ -1,4 +1,10 @@
 
+import static java.lang.Integer.signum;
+import java.util.HashSet;
+import java.util.PriorityQueue;
+import java.util.Set;
+
+
 
 /*
  * Author: James Eaton, Scott Kirkpatrick
@@ -25,18 +31,48 @@ public class Algorithms {
         }
     } 
     
-    public static Graph Kruskal(Graph graph){
+    public static void Kruskal(Graph graph){
         int n = 0;
-    	PriorityQueue edges = new PriorityQueue;
-        Graph MST = new Graph(graph.labels){
+    	PriorityQueue<edge> edges = new PriorityQueue();
+        Set vertices[] = new HashSet[graph.labels.length];
         
-       	for(int i = 0, i < graph.labels.length, i++){
-       		for (int j = 0, j < graph.labels.length, j++){
-       			if(weight[i][j] != Integer.MAX_VALUE){
-       				edges.add()
-       			}
-       		}
+       	for(int i = 0; i < graph.labels.length; i++){
+            for (int j = 0; j < graph.labels.length; j++){
+                if(graph.weight[i][j] != Integer.MAX_VALUE){
+                    edges.add(new edge(graph.weight[i][j], i, j));
+                }
+            }
         }
+       	for(int i=0; i < graph.labels.length; i++){
+            vertices[i] = new HashSet();
+            vertices[i].add(i);
+       	}
+       	while(n < graph.labels.length-1){
+            edge e = edges.poll();
+            int i = 0, j = 0;
+            boolean found = false;
+            do{
+                if(vertices[i].contains(e.from)){
+                    found = true;
+                }else{
+                    i++;
+                }
+            }while(found != true);
+            if(!vertices[i].contains(e.to)){
+                found = false;
+                do{
+                    if(vertices[j].contains(e.to)){
+                        found = true;
+                    }else{
+                        j++;
+                    }
+                }while(found != true);
+                vertices[i].addAll(vertices[j]);
+                vertices[j].clear();
+                n++;
+                System.out.print(graph.labels[e.from]+graph.labels[e.to]+" ");
+            }
+       	}
     } 
      
     public static void FloydWarshall(Graph graph){
@@ -59,3 +95,18 @@ public class Algorithms {
     } 
 }
 
+class edge implements Comparable<edge>{
+    int weight;
+    int from;
+    int to;
+
+    edge(int w, int f, int t){
+            weight = w;
+            from = f;
+            to = t;
+    }
+    
+    public int compareTo(edge o){
+            return signum(weight-o.weight);
+    }    
+}
